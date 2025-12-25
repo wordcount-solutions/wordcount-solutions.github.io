@@ -36,7 +36,7 @@ jobs:
           # For GitHub Pages project pages, base_url should be "/repository-name/"
           # This ensures all links work correctly in GitHub Pages preview
           REPO_NAME="${{ github.event.repository.name }}"
-          sed -i "s|base_url = \".*\"|base_url = \"/${REPO_NAME}/\"" config.toml
+          sed -i.bak "s#base_url = \".*\"#base_url = \"/${REPO_NAME}/\"#" config.toml && rm config.toml.bak
       
       - name: Build site
         run: zola build
