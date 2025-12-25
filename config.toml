@@ -1,7 +1,7 @@
 # Zola configuration
 title = "WordCount Solutions, LLC"
 description = "Human-Centered Technical Writing and Editing — On Demand"
-base_url = "https://wordcount.solutions"
+base_url = "https://stage.wordcount.solutions"
 theme = "vonge"
 taxonomies = [
     { name = "tags", feed = true},
