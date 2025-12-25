@@ -265,6 +265,22 @@ Custom templates that override the theme are in `templates/`:
 
 ## Deployment
 
+### GitHub Pages
+
+The site includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that automatically builds and deploys to GitHub Pages when you push to the `main` branch.
+
+**Important**: The workflow automatically adjusts the `base_url` in `config.toml` for GitHub Pages preview. For production deployment with your custom domain (`wordcount.solutions`), the `base_url` in `config.toml` should remain `https://wordcount.solutions`.
+
+**To enable GitHub Pages:**
+1. Go to your repository on GitHub
+2. Navigate to **Settings → Pages**
+3. Under "Source", select **GitHub Actions**
+4. The workflow will automatically build and deploy on each push to `main`
+
+**Note**: The GitHub Pages preview will use `/wordcount-website/` as the base path, which ensures all internal links work correctly in the preview.
+
+### Manual Deployment
+
 The site is a static site that can be deployed to any static hosting service:
 
 1. Build the site: `zola build`
