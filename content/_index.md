@@ -10,6 +10,8 @@ image_alt = "Girl writing"
 image_attribution = "Image of \"Girl writing, Taizé, August 2010\" by <a href=\"https://commons.wikimedia.org/wiki/File:Girl_writing_(4930218619).jpg\">Rui Fernandes</a>"
 cta_button_link = "mailto:inquiries@wordcount.solutions"
 cta_button = "Get in touch"
+services_button_link = "/services"
+services_button = "Services"
 works_button_link = "/team-page"
 works_button = "See our team"
 

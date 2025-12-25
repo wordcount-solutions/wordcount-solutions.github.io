@@ -26,11 +26,21 @@ show_tags = false
 
 navigation = [
     { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/contact", title = "Contact WordCount" },
+    { url = "$BASE_URL/services", title = "Services" },
+    { url = "$BASE_URL/services/faq", title = "FAQ" },
     { url = "$BASE_URL/team-page", title = "Team" },
-    { url = "", title = "Pages", submenu = [
+    { url = "$BASE_URL/pricing", title = "Pricing" },
+    { url = "", title = "More", submenu = [
         { url = "$BASE_URL/about", title = "About" },
         { url = "$BASE_URL/philosophy", title = "Philosophy" }
     ] }
+]
+
+# Social media icons in footer
+social_icons = [
+    { url = "https://github.com/wordcount-solutions", icon = "GitHub" },
+    { url = "https://www.linkedin.com/company/wordcount-solutions/posts/?feedView=all", icon = "LinkedIn" }
 ]
 
 [extra.newsletter]
@@ -38,6 +48,18 @@ newsletter_title = "Join our mailing list"
 newsletter_description = "Get updates from the team."
 newsletter_url = "https://40xak2.share-na2.hsforms.com/2mPzw7WXvReuWIZMS79wh1w"
 newsletter_button = "Subscribe"
+
+[extra.footer]
+menu = [
+    { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/contact", title = "Contact WordCount" },
+    { url = "$BASE_URL/services", title = "Services" },
+    { url = "$BASE_URL/services/faq", title = "FAQ" },
+    { url = "$BASE_URL/team-page", title = "Team" },
+    { url = "$BASE_URL/pricing", title = "Pricing" },
+    { url = "$BASE_URL/philosophy", title = "Philosophy" },
+    { url = "$BASE_URL/about", title = "About" }
+]
 
 [[extra.content_blocks]]
 block = "hero"

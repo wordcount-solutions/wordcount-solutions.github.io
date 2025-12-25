@@ -1,0 +1,26 @@
+{% macro contact_hero(data) %}
+<!-- begin contact hero -->
+{% set c = 'c-contact-hero' %}
+<section class="{{c}} animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="{{c}}__inner">
+          <div class="{{c}}__left">
+            {{ data.content_html | safe }}
+          </div>
+          {% if data.image %}
+          <div class="{{c}}__right">
+            <div class="{{c}}__image">
+              <img loading="lazy" src="{{ get_url(path=data.image) }}" alt="{{ data.image_alt | default(value='Contact') }}">
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end contact hero -->
+{% endmacro contact_hero %}
+
