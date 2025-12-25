@@ -1,0 +1,35 @@
+{% import "components/team-card.html" as team_card %}
+{% macro team_grid(data) %}
+<!-- begin team grid -->
+<section class="section testimonials animate team-grid">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="contaniner__inner animate">
+
+          <div class="section__info">
+            <div class="section__head">
+              <h2 class="section__title">{{ data.title }}</h2>
+            </div>
+            <div class="section__description">{{ data.description_html | safe }}</div>
+          </div>
+
+          {% if data.show_team %}
+          <div class="row team-grid__row">
+            {% set section = get_section(path="team/_index.md") %}
+            {% for page in section.pages %}
+            <div class="col col-4 col-d-6 col-t-12">
+              {{ team_card::team_card(data=page) }}
+            </div>
+            {% endfor %}
+          </div>
+          {% endif %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end team grid -->
+{% endmacro team_grid %}
+

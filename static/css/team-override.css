@@ -1,0 +1,19 @@
+/* Remove decorative quote from team member blurbs */
+.team-member .c-testimonial-card__client-text.team-member__blurb::after {
+  content: none !important;
+  display: none !important;
+}
+
+/* Ensure consistent spacing between team grid rows - minimum 12px */
+.team-grid .team-grid__row > .col {
+  margin-bottom: 12px;
+}
+
+/* Set minimum height for team member cards to ensure consistency */
+.team-grid .team-member .c-testimonial-card__content {
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{% if section.title %}{{ section.title }} - {% endif %}{{ config.title }}</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ get_url(path="css/main.css") }}">
+</head>
+<body>
+    {% if section.relative_path == "team/_index.md" %}
+        {% include "team.html" %}
+    {% else %}
+        <div class="bg-corner"></div>
+        <div class="page-logo">錆녹</div>
+        <div class="page-container">
+            <nav class="nav-bar">
+                <a href="{{ get_url(path="/") }}" class="nav-link">home</a>
+                <a href="{{ get_url(path="/team/") }}" class="nav-link">team</a>
+                <a href="{{ get_url(path="/about/") }}" class="nav-link">about</a>
+            </nav>
+            <main class="content-frame">
+                <article class="content">
+                    <h1>{{ section.title }}</h1>
+                    {{ section.content | safe }}
+                </article>
+            </main>
+            <footer class="footer">
+                <a href="{{ get_url(path="/terms/") }}" class="footer-link">terms</a>
+                <span class="footer-separator">|</span>
+                <a href="{{ get_url(path="/privacy/") }}" class="footer-link">privacy</a>
+            </footer>
+        </div>
+    {% endif %}
+</body>
+</html>
+

@@ -1,0 +1,341 @@
+/* Global styles */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Home page specific: hide overflow like original */
+body.home-page {
+    overflow: hidden;
+}
+
+/* Home page styles */
+.bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/fe2o3-wikipedia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+}
+
+.title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 36pt;
+    color: white;
+    text-shadow: 0 0 10px rgba(0,0,0,0.7);
+    letter-spacing: 2px;
+    text-align: center;
+}
+
+.hello {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: black;
+    font-family: monospace;
+}
+
+.hello pre {
+    margin: 0;
+    background: transparent;
+    padding: 10px;
+    border-radius: 4px;
+    color: black;
+}
+
+/* Home page content - text should be rust or black, not white (only centered title is white) */
+.home-content {
+    color: var(--rust-color);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 100px 20px 20px;
+    line-height: 1.6;
+}
+
+.home-content p {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Page container styles (for non-home pages) */
+.page-container {
+    min-height: 100vh;
+    background-color: transparent;
+    position: relative;
+}
+
+/* Rust color: approximately #B7410E or similar rust brown */
+:root {
+    --rust-color: #B7410E;
+    --cream-color: #F5F5DC;
+}
+
+/* Background overlay for non-home pages - Fe2O3 image at 10% opacity */
+.bg-corner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-image: url('/fe2o3-wikipedia.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    opacity: 1.0;
+    z-index: 0;
+    pointer-events: none; /* Allow clicks to pass through */
+}
+
+/* Rust-colored logo text in top-left for non-home pages */
+.page-logo {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    color: var(--rust-color);
+    font-size: 24pt;
+    font-weight: 700;
+    z-index: 50;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+
+/* Navigation bar */
+.nav-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    z-index: 100;
+    padding: 0 20px;
+}
+
+.nav-link {
+    color: var(--rust-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16pt;
+    letter-spacing: 1px;
+    transition: opacity 0.2s;
+}
+
+.nav-link:hover {
+    opacity: 0.7;
+}
+
+/* Content frame - 4px border, 1" (96px) margins on left/right */
+.content-frame {
+    margin-top: 60px; /* Account for nav bar */
+    margin-left: 96px; /* 1" left margin */
+    margin-right: 96px; /* 1" right margin */
+    margin-bottom: 60px; /* Bottom margin */
+    min-height: calc(100vh - 120px);
+    background-color: var(--cream-color);
+    border: 4px solid var(--rust-color);
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Make margins compressible on smaller screens */
+@media (max-width: 800px) {
+    .content-frame {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+}
+
+.content {
+    max-width: 900px;
+    margin: 0 auto;
+    color: #333;
+    line-height: 1.6;
+}
+
+.content h1 {
+    color: var(--rust-color);
+    font-size: 32pt;
+    margin-bottom: 30px;
+    border-bottom: 2px solid var(--rust-color);
+    padding-bottom: 10px;
+}
+
+.content h2 {
+    color: var(--rust-color);
+    font-size: 24pt;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+.content p {
+    margin-bottom: 15px;
+}
+
+/* Footer - dark background for white text */
+.footer {
+    position: fixed;
+    bottom: 8px;
+    left: 8px;
+    right: 8px;
+    height: 40px;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+    gap: 10px;
+    z-index: 100;
+    padding: 0 20px;
+}
+
+/* Home page footer - transparent, no border, black text */
+body.home-page .footer {
+    background-color: transparent;
+    border: none;
+}
+
+body.home-page .footer-link {
+    color: black;
+}
+
+body.home-page .footer-separator {
+    color: black;
+}
+
+.footer-link {
+    color: black;
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 12pt;
+}
+
+.footer-link:hover {
+    text-decoration: underline;
+}
+
+.footer-separator {
+    color: black;
+}
+
+/* Home page navigation in top right */
+.home-nav {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 20px;
+    z-index: 10;
+}
+
+.home-nav-link {
+    color: var(--rust-color);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16pt;
+    letter-spacing: 1px;
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: opacity 0.2s;
+}
+
+.home-nav-link:hover {
+    opacity: 0.7;
+}
+
+/* Team grid */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
+
+.team-card {
+    background-color: white;
+    border: 2px solid var(--rust-color);
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.team-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(183, 65, 14, 0.3);
+}
+
+.team-image-container {
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 15px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--rust-color);
+    position: relative;
+    flex-shrink: 0;
+    background-color: #f0f0f0; /* fallback background */
+}
+
+.team-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.team-info {
+    color: #333;
+}
+
+.team-name {
+    font-size: 18pt;
+    color: var(--rust-color);
+    margin: 10px 0 5px;
+}
+
+.team-role {
+    font-size: 14pt;
+    color: #666;
+    margin: 0 0 10px;
+    font-style: italic;
+}
+
+.team-social {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.social-link {
+    color: var(--rust-color);
+    text-decoration: none;
+    font-size: 11pt;
+    padding: 4px 8px;
+    border: 1px solid var(--rust-color);
+    border-radius: 4px;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+.social-link:hover {
+    background-color: var(--rust-color);
+    color: white;
+}
