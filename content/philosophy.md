@@ -6,8 +6,9 @@ block = "page-heading"
 title = "Philosophy"
 [[extra.content_blocks]]
 block = "page-image"
-image = "/images/page-1.jpg"
-image_alt = "My best photo"
+image = "/images/960px-Girl_writing_(4930218619).jpg"
+image_alt = "Girl writing"
+image_attribution = "Image of \"Girl writing, Taizé, August 2010\" by <a href=\"https://commons.wikimedia.org/wiki/File:Girl_writing_(4930218619).jpg\">Rui Fernandes</a>"
 [[extra.content_blocks]]
 block = "content"
 content_html = """

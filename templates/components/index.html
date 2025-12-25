@@ -33,7 +33,7 @@
     {% elif block.block == "page-heading" %}
     {{ page_heading::page_heading(taxonomies = block.taxonomies | default(value=false), title = block.title, description = block.description | default(value=false)) }}
     {% elif block.block == "page-image" %}
-    {{ page_image::page_image(image = block.image, image_alt = block.image_alt) }}
+    {{ page_image::page_image(image = block.image, image_alt = block.image_alt, image_attribution = block.image_attribution | default(value=false)) }}
     {% elif block.block == "pagination" %}
     {{ pagination::pagination(data = block) }}
     {% elif block.block == "posts-list" %}

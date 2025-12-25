@@ -24,6 +24,11 @@
             <div class="{{c}}__image">
               <img loading="lazy" src="{{ get_url(path=data.image) }}" alt="{{ data.image_alt }}">
             </div>
+            {% if data.image_attribution %}
+            <div class="{{c}}__attribution">
+              {{ data.image_attribution | safe }}
+            </div>
+            {% endif %}
           </div>
 
         </div>

@@ -15,6 +15,9 @@ render = true
 output_dir = "public"
 
 [extra]
+# Logo configuration
+logo_image = "images/logo3.webp"
+
 # Navigation configuration
 # Set to false to hide sections from navigation
 show_projects = false
@@ -40,8 +43,9 @@ newsletter_button = "Subscribe"
 block = "hero"
 title = "Human-Centered Technical Writing and Editing — On Demand"
 description_html = "Partner with WordCount Solutions for smart, human-enabled content. We deliver tailored technical writing and editing projects that meet your needs without the hassle of hiring a creative team."
-image = "/images/01.jpg"
-image_alt = "WordCount Solutions"
+image = "/images/960px-Girl_writing_(4930218619).jpg"
+image_alt = "Girl writing"
+image_attribution = "Image of \"Girl writing, Taizé, August 2010\" by <a href=\"https://commons.wikimedia.org/wiki/File:Girl_writing_(4930218619).jpg\">Rui Fernandes</a>"
 cta_button_link = "mailto:inquiries@wordcount.solutions"
 cta_button = "Get in touch"
 

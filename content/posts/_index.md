@@ -5,7 +5,7 @@ paginate_by = 6
 [[extra.content_blocks]]
 block = "page-heading"
 title = "Blog"
-description = "Vonge blog features productivity, tips, inspiration and strategies for massive profits. Find out how to set up a successful blog or how to make yours even better!"
+description = "WordCount blog features productivity, tips, inspiration and strategies for massive profits. Find out how to set up a successful blog or how to make yours even better!"
 [[extra.content_blocks]]
 block = "posts-list"
 show_posts = true

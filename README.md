@@ -229,7 +229,7 @@ The main site configuration is in `config.toml` at the root. Key sections:
 
 ### Theme
 
-This site uses the **Vonge** theme located in `themes/vonge/`. The theme provides:
+This site uses the **Vonge** theme (located in `themes/vonge/`) as its base. The theme provides:
 - Homepage layout with content blocks
 - Team/testimonials display components
 - Blog and project templates
