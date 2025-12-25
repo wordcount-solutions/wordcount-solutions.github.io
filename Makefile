@@ -1,7 +1,8 @@
 .PHONY: build serve clean install check
 
-# Detect Zola binary - check for ./zola first, then zola in PATH
-ZOLA = $(shell if [ -f ./zola ]; then echo ./zola; elif command -v zola >/dev/null 2>&1; then echo zola; else echo ""; fi)
+ZOLA := $(shell if [ -f ./zola ]; then echo ./zola; elif command -v zola >/dev/null 2>&1; then echo zola; else echo ""; fi)
+DOMAIN := stage.wordcount.solutions
+DEST := simsong_static@simson.net:$(DOMAIN)
 
 # Default target
 all: build
@@ -51,4 +52,4 @@ check:
 install: check
 
 pub: build
-	rsync --archive --delete --verbose public/. simson.net:wordcount.solutions/.
+	rsync --archive --delete --verbose public/. $(DEST)/.
