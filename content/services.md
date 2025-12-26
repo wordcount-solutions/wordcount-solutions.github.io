@@ -4,7 +4,7 @@ template = "custom_page.html"
 
 [[extra.content_blocks]]
 block = "page-heading"
-title = "WordCount's Services"
+title = "WordCount Services"
 
 [[extra.content_blocks]]
 block = "services-overview"

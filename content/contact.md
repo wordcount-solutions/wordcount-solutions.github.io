@@ -4,7 +4,7 @@ template = "custom_page.html"
 
 [[extra.content_blocks]]
 block = "page-heading"
-title = "Contact"
+title = "Contact WordCount"
 
 [[extra.content_blocks]]
 block = "contact-hero"
@@ -13,7 +13,7 @@ content_html = """
   <div class="contact-intro">
     <h2>Reach out to us directly for tailored writing support.</h2>
   </div>
-  
+
   <div class="contact-info">
     <p class="contact-email-main">
       <a href="mailto:inquiries@wordcount.solutions">inquiries@wordcount.solutions</a>

@@ -26,7 +26,7 @@ show_tags = false
 
 navigation = [
     { url = "$BASE_URL", title = "Home" },
-    { url = "$BASE_URL/contact", title = "Contact WordCount" },
+    { url = "$BASE_URL/contact", title = "Contact" },
     { url = "$BASE_URL/services", title = "Services" },
     { url = "$BASE_URL/services/faq", title = "FAQ" },
     { url = "$BASE_URL/team-page", title = "Team" },
