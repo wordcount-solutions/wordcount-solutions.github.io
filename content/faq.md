@@ -19,7 +19,7 @@ content_html = """
 
   <div class="faq-item">
     <h3>What makes your content different from AI-generated material?</h3>
-    <p>Sometimes you just need a human set of eyes to make sure your product is factually correct, nuanced, and readable. Whether you want your project 90% or 0% AI-created, WordCount's AI-savvy tech writers will work with you.</p>
+    <p>Sometimes you just need a human set of eyes to make sure your product is factually correct, nuanced, and readable. Whether you want your project 90% or 0% AI-created, WordCount's AI-savvy team will work with you.</p>
   </div>
 
   <div class="faq-item">
@@ -28,7 +28,7 @@ content_html = """
   </div>
 
   <div class="faq-item">
-    <h3>What types of technical documents do you produce?</h3>
+    <h3>What types of documents do you produce?</h3>
     <p>Just ask! The WordCount team includes experts in most subject areas, from government to software to compliance, medical and legal.</p>
   </div>
 </div>

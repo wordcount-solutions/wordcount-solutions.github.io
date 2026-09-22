@@ -49,13 +49,13 @@ content_html = """
       <div class="col col-6 col-d-12">
         <div class="pricing-right-column">
           <div class="pricing-image-container">
-            <img src="/images/art/2a93ce638d7a63cff387975dc42df6f3300711c3.jpg" alt="Pricing" class="pricing-image">
+            <img src="../images/art/2a93ce638d7a63cff387975dc42df6f3300711c3.jpg" alt="Pricing" class="pricing-image">
           </div>
           
           <div class="pricing-cta-box">
             <h3>Ask Us</h3>
             <p>Comprehensive content solutions tailored to your technical documentation requirements.</p>
-            <a href="/contact" class="c-button c-button--primary c-button--large">Get Started</a>
+            <a href="../contact/" class="c-button c-button--primary c-button--large">Get Started</a>
           </div>
         </div>
       </div>
