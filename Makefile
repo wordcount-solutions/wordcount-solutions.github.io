@@ -15,12 +15,7 @@ build:
 		exit 1; \
 	fi
 	@echo "Building site with Zola..."
-	cd src && $(ZOLA) build
-	@if [ -d src/public ] && [ ! -d public ]; then \
-		mv src/public public && echo "Moved build output to public/"; \
-	elif [ -d src/public ] && [ -d public ]; then \
-		/bin/rm -rf public && mv src/public public && echo "Updated public/ directory"; \
-	fi
+	$(ZOLA) build
 
 # Serve the site locally (development mode)
 serve:
@@ -30,12 +25,12 @@ serve:
 		exit 1; \
 	fi
 	@echo "Serving site locally at http://127.0.0.1:1111"
-	cd src && $(ZOLA) serve
+	$(ZOLA) serve
 
 # Clean build artifacts
 clean:
 	@echo "Cleaning build directory..."
-	/bin/rm -rf public src/public
+	/bin/rm -rf public
 
 # Check if Zola is installed
 check:

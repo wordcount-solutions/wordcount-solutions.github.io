@@ -27,6 +27,9 @@
 
           <div class="{{c}}__right">
             <div class="{{c}}__image">
+              {% if data.image == "/images/art/janeb13-computer-1185626 1024x683.jpeg" %}
+              <!-- Image source: https://pixabay.com/photos/computer-pc-workplace-home-office-1185626/ — Pixabay user janeb13. -->
+              {% endif %}
               <img loading="lazy" src="{{ get_url(path=data.image) }}" alt="{{ data.image_alt }}">
             </div>
             {% if data.image_attribution %}
@@ -43,4 +46,3 @@
 </section>
 <!-- end hero -->
 {% endmacro hero %}
-

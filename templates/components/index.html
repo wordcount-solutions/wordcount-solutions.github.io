@@ -42,7 +42,7 @@
     {% elif block.block == "page-heading" %}
     {{ page_heading::page_heading(taxonomies = block.taxonomies | default(value=false), title = block.title, description = block.description | default(value=false)) }}
     {% elif block.block == "page-image" %}
-    {{ page_image::page_image(image = block.image, image_alt = block.image_alt, image_attribution = block.image_attribution | default(value=false)) }}
+    {{ page_image::page_image(image = block.image, image_alt = block.image_alt, image_attribution = block.image_attribution | default(value=false), title = block.title | default(value=false), overlay_title = block.overlay_title | default(value=false), title_color = block.title_color | default(value='#17183b'), image_fade = block.image_fade | default(value=0)) }}
     {% elif block.block == "pagination" %}
     {{ pagination::pagination(data = block) }}
     {% elif block.block == "pricing-hero" %}
@@ -72,4 +72,3 @@
     {% endif %}
 {% endfor %}
 {% endmacro content_blocks %}
-

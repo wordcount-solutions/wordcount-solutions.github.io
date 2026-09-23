@@ -53,14 +53,14 @@ Download the executable from [Zola releases](https://github.com/getzola/zola/rel
 
 ### Serve Locally (Development)
 ```bash
-zola serve
+make serve
 ```
 
 This will start a local development server at `http://127.0.0.1:1111` that auto-reloads when you make changes.
 
 ### Build for Production
 ```bash
-zola build
+make build
 ```
 
 This generates the static site in the `public/` directory.
@@ -116,13 +116,14 @@ The Philosophy page (formerly Elements) contains your company philosophy and val
 
 The About page contains information about WordCount Solutions. To edit:
 1. Open `content/about.md`
-2. Modify the `title` in the front matter
+2. Modify the `title` in the `page-image` block
 3. Edit the `content_html` field in the `content` block
 4. Optionally change the `page-image` block to use a different header image
 
+The `page-image` block supports `overlay_title = true` to place its `title` over the image. Set `overlay_title = false` to show the title above the image. `title_color` accepts a CSS color such as `"white"`, `"black"`, `"red"`, or `"#17183b"`. `image_fade` is the opacity of a white layer over the photo: `0` leaves it unchanged and `1` makes it fully white. The About page currently uses `image_fade = 0.65` and a dark title. These settings are optional on other `page-image` blocks; existing images without a title render as before.
+
 **Content Block Structure:**
-- `page-heading`: Page title
-- `page-image`: Optional header image
+- `page-image`: Header image and optional overlaid title
 - `content`: Main page content (HTML)
 - `newsletter`: Newsletter subscription form
 
@@ -254,7 +255,7 @@ Custom templates that override the theme are in `templates/`:
 - Hard refresh browser: `Cmd+Shift+R` (Mac) or `Ctrl+Shift+R` (Windows/Linux)
 
 ### Changes Not Showing
-- Restart `zola serve` if it's running
+- Restart `make serve` if it's running
 - Clear browser cache
 - Check for build errors in the terminal
 
@@ -283,7 +284,7 @@ The site includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that
 
 The site is a static site that can be deployed to any static hosting service:
 
-1. Build the site: `zola build`
+1. Build the site: `make build`
 2. Upload the contents of `public/` to your web server
 
 The `public/` directory contains the complete static website ready for deployment.
@@ -307,4 +308,3 @@ The `public/` directory contains the complete static website ready for deploymen
 For Zola documentation, visit: https://www.getzola.org/documentation/
 
 For theme-specific questions, see: `themes/vonge/README.md`
-
