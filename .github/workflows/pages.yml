@@ -11,7 +11,7 @@ permissions:
   contents: read
 
 env:
-  SITE_URL: ${{ vars.SITE_URL || 'https://wordcount-solutions.github.io' }}
+  SITE_URL: ${{ vars.SITE_URL || 'https://wordcount-solutions.github.io/wordcount-website' }}
 
 jobs:
   validate:

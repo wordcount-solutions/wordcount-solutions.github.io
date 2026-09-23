@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := build
 ZOLA ?= zola
 PYTHON ?= python3
-SITE_URL ?= https://wordcount-solutions.github.io
+SITE_URL ?= https://wordcount-solutions.github.io/wordcount-website
 BASE_URL ?= $(SITE_URL)
 OUTPUT_DIR ?= public
 PORT ?= 1111
