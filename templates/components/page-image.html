@@ -9,6 +9,9 @@
     <div class="col col-12">
       <div class="{{c}}-group">
         <div class="{{c}}{% if image_fade > 0 %} {{c}}--faded{% endif %}{% if title and overlay_title %} {{c}}--overlay{% endif %} animate" style="--page-image-title-color: {{ title_color }}; --page-image-fade: {{ image_fade }}">
+          {% if image == "/images/art/janeb13-computer-1185626 1024x683.jpeg" %}
+          <!-- Image source: https://pixabay.com/photos/computer-pc-workplace-home-office-1185626/ — Pixabay user janeb13. -->
+          {% endif %}
           <img loading="lazy" src="{{ get_url(path=image) }}" alt="{{ image_alt }}">
           {% if title and overlay_title %}
           <h1 class="{{c}}__title">{{ title }}</h1>
