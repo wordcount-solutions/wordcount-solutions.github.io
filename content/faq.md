@@ -36,9 +36,9 @@ content_html = """
 <div class="contact-section">
   <h2>Contact Us!</h2>
   <p class="contact-email">
-    <a href="mailto:inquiries@wordcountsolutions.com" class="email-link">
+    <a href="mailto:inquiries@wordcount.solutions" class="email-link">
       <i class="ion ion-md-mail"></i>
-      <span>inquiries@wordcountsolutions.com</span>
+      <span>inquiries@wordcount.solutions</span>
     </a>
   </p>
 </div>
