@@ -1,0 +1,27 @@
+{% macro pricing_hero(data) %}
+<!-- begin pricing hero -->
+{% set c = 'c-pricing-hero' %}
+<section class="{{c}} animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="{{c}}__inner">
+          <div class="{{c}}__left">
+            {{ data.content_html | safe }}
+          </div>
+          {% if data.image %}
+          <div class="{{c}}__right">
+            <div class="{{c}}__image">
+              <img loading="lazy" src="{{ get_url(path=data.image) }}" alt="{{ data.image_alt | default(value='Pricing') }}">
+            </div>
+          </div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end pricing hero -->
+{% endmacro pricing_hero %}
+
+

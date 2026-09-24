@@ -1,9 +1,8 @@
 +++
-weight = 2
+weight = 4
 [extra]
 name = "Steffen Campbell"
 position = "Writer"
 image = "/images/team/Steffen-Campbell.jpeg"
 blurb = "Experienced in writing."
 +++
-

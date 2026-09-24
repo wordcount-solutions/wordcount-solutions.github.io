@@ -2,6 +2,13 @@
 
 This is the source code for the WordCount Solutions website, built with [Zola](https://www.getzola.org/), a static site generator written in Rust.
 
+| Branch | GitHub Pages URL before the DNS move |
+| --- | --- |
+| `production` | https://wordcount-solutions.github.io/ |
+| `main` | https://wordcount-solutions.github.io/staging/ |
+
+`/stage/` redirects to `/staging/`. Both paths are public; staging pages ask search engines not to index them.
+
 ## Project Structure
 
 ```
@@ -53,17 +60,19 @@ Download the executable from [Zola releases](https://github.com/getzola/zola/rel
 
 ### Serve Locally (Development)
 ```bash
-zola serve
+make serve
 ```
 
 This will start a local development server at `http://127.0.0.1:1111` that auto-reloads when you make changes.
 
 ### Build for Production
 ```bash
-zola build
+make build
 ```
 
 This generates the static site in the `public/` directory.
+
+Run `make test` to check both URL layouts and the deployment assembly. Run `make assemble` followed by `make verify-artifact` to build and check the combined Pages artifact in `.tmp/pages/`. `make preview` serves the combined root and staging layout locally at `http://127.0.0.1:1111/`.
 
 ## Editing Content
 
@@ -116,13 +125,14 @@ The Philosophy page (formerly Elements) contains your company philosophy and val
 
 The About page contains information about WordCount Solutions. To edit:
 1. Open `content/about.md`
-2. Modify the `title` in the front matter
+2. Modify the `title` in the `page-image` block
 3. Edit the `content_html` field in the `content` block
 4. Optionally change the `page-image` block to use a different header image
 
+The `page-image` block supports `overlay_title = true` to place its `title` over the image. Set `overlay_title = false` to show the title above the image. `title_color` accepts a CSS color such as `"white"`, `"black"`, `"red"`, or `"#17183b"`. `image_fade` is the opacity of a white layer over the photo: `0` leaves it unchanged and `1` makes it fully white. The About page currently uses `image_fade = 0.65` and a dark title. These settings are optional on other `page-image` blocks; existing images without a title render as before.
+
 **Content Block Structure:**
-- `page-heading`: Page title
-- `page-image`: Optional header image
+- `page-image`: Header image and optional overlaid title
 - `content`: Main page content (HTML)
 - `newsletter`: Newsletter subscription form
 
@@ -254,7 +264,7 @@ Custom templates that override the theme are in `templates/`:
 - Hard refresh browser: `Cmd+Shift+R` (Mac) or `Ctrl+Shift+R` (Windows/Linux)
 
 ### Changes Not Showing
-- Restart `zola serve` if it's running
+- Restart `make serve` if it's running
 - Clear browser cache
 - Check for build errors in the terminal
 
@@ -265,28 +275,23 @@ Custom templates that override the theme are in `templates/`:
 
 ## Deployment
 
-### GitHub Pages
+GitHub Pages is hosted from `wordcount-solutions/wordcount-website`. Because this is a project site, the production URL is `https://wordcount-solutions.github.io/wordcount-website/`, staging is at `https://wordcount-solutions.github.io/wordcount-website/staging/`, and `/stage/` redirects to `/staging/`. One Pages artifact contains the `production` branch at the project root and the `main` branch under `/staging/`. Merging a PR into `main` publishes staging; merging a PR into `production` publishes the root site. An unmerged PR runs validation only. Promote a reviewed staging version with a PR from `main` into `production`.
 
-The site includes a GitHub Actions workflow (`.github/workflows/pages.yml`) that automatically builds and deploys to GitHub Pages when you push to the `main` branch.
+The workflow checks out both branches after acquiring one deployment lock, builds each with its own base URL, verifies internal links and assets, then publishes the combined artifact. A staging push never promotes content into `/`. Deleted files disappear from the next artifact. Both branches must keep the `make build` interface and `.github/workflows/pages.yml` for push-triggered deployments.
 
-**Important**: The workflow automatically adjusts the `base_url` in `config.toml` for GitHub Pages preview. For production deployment with your custom domain (`wordcount.solutions`), the `base_url` in `config.toml` should remain `https://wordcount.solutions`.
+### Initial GitHub setup
 
-**To enable GitHub Pages:**
-1. Go to your repository on GitHub
-2. Navigate to **Settings → Pages**
-3. Under "Source", select **GitHub Actions**
-4. The workflow will automatically build and deploy on each push to `main`
+1. Give `@simsong-codex` write access and repository administration rights needed for Pages setup. Keep GitHub writes under that identity.
+2. Use the **public** `wordcount-solutions/wordcount-website` repository. Leave `wordcount.solutions` DNS and the Pages custom-domain field unchanged for this trial.
+3. Push the initial `production` and `main` branches **before enabling the new workflow**. Keep the old single-branch Pages workflow absent or disabled during these initial pushes.
+4. Add `.github/workflows/pages.yml` to both branches, then select **GitHub Actions** in **Settings → Pages**. Permit `main` and `production` in the `github-pages` environment. Run **Publish production and staging** if no push occurs after Pages is enabled.
+5. Verify the production, staging, and redirect URLs listed above before changing DNS.
 
-**Note**: The GitHub Pages preview will use `/wordcount-website/` as the base path, which ensures all internal links work correctly in the preview.
+The workflow uses `SITE_URL=https://wordcount-solutions.github.io/wordcount-website` by default. To move to `wordcount.solutions` later, verify domain ownership, configure the Pages custom domain, set the repository variable `SITE_URL` to `https://wordcount.solutions`, publish again, and then change the web DNS records. Preserve mail-related DNS records. A `CNAME` file is not needed for an Actions-published site.
 
-### Manual Deployment
+### Manual DreamHost deployment
 
-The site is a static site that can be deployed to any static hosting service:
-
-1. Build the site: `zola build`
-2. Upload the contents of `public/` to your web server
-
-The `public/` directory contains the complete static website ready for deployment.
+The legacy `make pub` target builds for `stage.wordcount.solutions` and uploads `public/` to DreamHost. Run it explicitly; GitHub Actions never calls it.
 
 ## Quick Reference
 
@@ -307,4 +312,3 @@ The `public/` directory contains the complete static website ready for deploymen
 For Zola documentation, visit: https://www.getzola.org/documentation/
 
 For theme-specific questions, see: `themes/vonge/README.md`
-

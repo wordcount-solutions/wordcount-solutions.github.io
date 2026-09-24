@@ -3,7 +3,7 @@ title = "Team"
 template = "custom_page.html"
 [[extra.content_blocks]]
 block = "page-heading"
-title = "WordCount Team"
+title = "WordCount's Team"
 description = "Meet our team of experienced writers and editors."
 [[extra.content_blocks]]
 block = "team-grid"
@@ -17,4 +17,3 @@ newsletter_description = "Get updates from the team."
 newsletter_identifier = ""
 newsletter_button = "Subscribe"
 +++
-
