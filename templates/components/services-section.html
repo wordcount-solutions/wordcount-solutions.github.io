@@ -1,6 +1,6 @@
 {% macro services_section(data) %}
 <!-- begin services section -->
-<section class="section services-section animate">
+<section{% if data.id %} id="{{ data.id }}"{% endif %} class="section services-section animate">
   <div class="container">
     <div class="row">
       <div class="col col-12">
@@ -44,4 +44,3 @@
 </section>
 <!-- end services section -->
 {% endmacro services_section %}
-

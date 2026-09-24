@@ -13,7 +13,7 @@
             <div class="{{c}}__btn">
               <a href="{{ data.cta_button_link }}" class="cta-button c-button c-button--primary c-button--small">{{ data.cta_button }}</a>
               {% if data.services_button and data.services_button_link %}
-              <a class="services-button c-button c-button--secondary c-button--small" href="{{ data.services_button_link }}">
+              <a class="services-button c-button c-button--secondary c-button--small" href="{{ get_url(path=data.services_button_link) }}">
                 {{ data.services_button }}
               </a>
               {% endif %}

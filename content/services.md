@@ -24,6 +24,7 @@ image_alt = "Services"
 
 [[extra.content_blocks]]
 block = "services-section"
+id = "services-details"
 title = "Expert Technical Writing Outsourcing"
 description_html = "Discover our specialized content services designed for your needs."
 services = [
