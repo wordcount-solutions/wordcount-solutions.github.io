@@ -1,18 +1,11 @@
 # Zola configuration
 title = "WordCount Solutions, LLC"
 description = "Human-Centered Technical Writing and Editing — On Demand"
-base_url = "https://wordcount.solutions"
+base_url = "https://wordcount-solutions.github.io"
 theme = "vonge"
 taxonomies = [
     { name = "tags", feed = true},
 ]
-
-[markdown]
-# Enable syntax highlighting
-highlight_code = false
-# Render tables
-render = true
-output_dir = "public"
 
 [extra]
 # Logo configuration
@@ -26,11 +19,19 @@ show_tags = false
 
 navigation = [
     { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/about", title = "About" },
+    { url = "$BASE_URL/contact", title = "Contact" },
+    { url = "$BASE_URL/faq", title = "FAQ" },
+    { url = "$BASE_URL/services", title = "Services" },
+    { url = "$BASE_URL/pricing", title = "Pricing" },
     { url = "$BASE_URL/team-page", title = "Team" },
-    { url = "", title = "Pages", submenu = [
-        { url = "$BASE_URL/about", title = "About" },
-        { url = "$BASE_URL/philosophy", title = "Philosophy" }
-    ] }
+    { url = "$BASE_URL/philosophy", title = "Philosophy" }
+]
+
+# Social media icons in footer
+social_icons = [
+    { url = "https://github.com/wordcount-solutions", icon = "GitHub" },
+    { url = "https://www.linkedin.com/company/wordcount-solutions/posts/?feedView=all", icon = "LinkedIn" }
 ]
 
 [extra.newsletter]
@@ -39,13 +40,24 @@ newsletter_description = "Get updates from the team."
 newsletter_url = "https://40xak2.share-na2.hsforms.com/2mPzw7WXvReuWIZMS79wh1w"
 newsletter_button = "Subscribe"
 
+[extra.footer]
+menu = [
+    { url = "$BASE_URL", title = "Home" },
+    { url = "$BASE_URL/about", title = "About" },
+    { url = "$BASE_URL/contact", title = "Contact" },
+    { url = "$BASE_URL/faq", title = "FAQ" },
+    { url = "$BASE_URL/services", title = "Services" },
+    { url = "$BASE_URL/team-page", title = "Team" },
+    { url = "$BASE_URL/pricing", title = "Pricing" },
+    { url = "$BASE_URL/philosophy", title = "Philosophy" },
+]
+
 [[extra.content_blocks]]
 block = "hero"
 title = "Human-Centered Technical Writing and Editing — On Demand"
 description_html = "Partner with WordCount Solutions for smart, human-enabled content. We deliver tailored technical writing and editing projects that meet your needs without the hassle of hiring a creative team."
-image = "/images/960px-Girl_writing_(4930218619).jpg"
-image_alt = "Girl writing"
-image_attribution = "Image of \"Girl writing, Taizé, August 2010\" by <a href=\"https://commons.wikimedia.org/wiki/File:Girl_writing_(4930218619).jpg\">Rui Fernandes</a>"
+image = "/images/art/janeb13-computer-1185626 1024x683.jpeg"
+image_alt = "Woman working at a laptop"
 cta_button_link = "mailto:inquiries@wordcount.solutions"
 cta_button = "Get in touch"
 

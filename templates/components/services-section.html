@@ -1,0 +1,46 @@
+{% macro services_section(data) %}
+<!-- begin services section -->
+<section{% if data.id %} id="{{ data.id }}"{% endif %} class="section services-section animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="section__info">
+          {% if data.title %}
+          <h2 class="section__title">{{ data.title }}</h2>
+          {% endif %}
+          {% if data.description_html %}
+          <div class="section__description">{{ data.description_html | safe }}</div>
+          {% endif %}
+        </div>
+
+        {% if data.services %}
+        <div class="row services-grid">
+          {% for service in data.services %}
+          <div class="col col-4 col-d-6 col-t-12">
+            <div class="service-item">
+              <div class="service-item__icon">
+                <i class="{% if service.icon %}{{ service.icon }}{% else %}ion ion-md-checkmark{% endif %}"></i>
+              </div>
+              {% if service.title %}
+              <h3 class="service-item__title">{{ service.title }}</h3>
+              {% endif %}
+              {% if service.description %}
+              <p class="service-item__description">{{ service.description }}</p>
+              {% endif %}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if data.cta_button and data.cta_button_link %}
+        <div class="services-section__cta">
+          <a href="{{ data.cta_button_link }}" class="c-button c-button--primary c-button--large">{{ data.cta_button }}</a>
+        </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end services section -->
+{% endmacro services_section %}

@@ -1,0 +1,58 @@
+{% macro services_overview(data) %}
+<!-- begin services overview -->
+<section class="section services-overview animate">
+  <div class="container">
+    <div class="row">
+      <div class="col col-12">
+        <div class="services-overview__inner">
+          <div class="row">
+            <!-- Left column: Overview text -->
+            <div class="col col-4 col-d-12">
+              <div class="services-overview__left">
+                {% if data.title %}
+                <h2 class="services-overview__title">{{ data.title }}</h2>
+                {% endif %}
+                {% if data.description_html %}
+                <div class="services-overview__description">{{ data.description_html | safe }}</div>
+                {% endif %}
+                {% if data.cta_button and data.cta_button_link %}
+                <div class="services-overview__cta">
+                  <a href="{{ data.cta_button_link }}" class="c-button c-button--primary c-button--small">{{ data.cta_button }}</a>
+                </div>
+                {% endif %}
+              </div>
+            </div>
+
+            <!-- Right column: Feature items -->
+            <div class="col col-8 col-d-12">
+              <div class="services-overview__right">
+                {% if data.features %}
+                <div class="row">
+                  {% for feature in data.features %}
+                  <div class="col col-6 col-d-12">
+                    <div class="service-feature">
+                      <div class="service-feature__icon">
+                        <i class="{% if feature.icon %}{{ feature.icon }}{% else %}ion ion-md-checkmark{% endif %}"></i>
+                      </div>
+                      {% if feature.title %}
+                      <h3 class="service-feature__title">{{ feature.title }}</h3>
+                      {% endif %}
+                      {% if feature.description %}
+                      <p class="service-feature__description">{{ feature.description }}</p>
+                      {% endif %}
+                    </div>
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- end services overview -->
+{% endmacro services_overview %}
+

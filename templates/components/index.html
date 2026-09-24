@@ -1,16 +1,21 @@
 {% import "components/blog-card.html" as blog_card %}
 {% import "components/blog-section.html" as blog_section %}
 {% import "components/contact-form.html" as contact_form %}
+{% import "components/contact-hero.html" as contact_hero %}
 {% import "components/content.html" as content %}
+{% import "components/faq-hero.html" as faq_hero %}
 {% import "components/hero.html" as hero %}
 {% import "components/newsletter.html" as newsletter %}
 {% import "components/page-heading.html" as page_heading %}
 {% import "components/page-image.html" as page_image %}
 {% import "components/pagination.html" as pagination %}
 {% import "components/posts-list.html" as posts_list %}
+{% import "components/pricing-hero.html" as pricing_hero %}
 {% import "components/project-card.html" as project_card %}
 {% import "components/projects-list.html" as projects_list %}
 {% import "components/projects-section.html" as projects_section %}
+{% import "components/services-overview.html" as services_overview %}
+{% import "components/services-section.html" as services_section %}
 {% import "components/tags-list.html" as tags_list %}
 {% import "components/testimonial-card.html" as testimonial_card %}
 {% import "components/testimonials-section.html" as testimonials_section %}
@@ -24,8 +29,12 @@
     {{ blog_section::blog_section(data = block) }}
     {% elif block.block == "contact-form" %}
     {{ contact_form::contact_form(data = block) }}
+    {% elif block.block == "contact-hero" %}
+    {{ contact_hero::contact_hero(data = block) }}
     {% elif block.block == "content" %}
     {{ content::content(content_html = block.content_html) }}
+    {% elif block.block == "faq-hero" %}
+    {{ faq_hero::faq_hero(data = block) }}
     {% elif block.block == "hero" %}
     {{ hero::hero(data = block) }}
     {% elif block.block == "newsletter" %}
@@ -33,9 +42,11 @@
     {% elif block.block == "page-heading" %}
     {{ page_heading::page_heading(taxonomies = block.taxonomies | default(value=false), title = block.title, description = block.description | default(value=false)) }}
     {% elif block.block == "page-image" %}
-    {{ page_image::page_image(image = block.image, image_alt = block.image_alt, image_attribution = block.image_attribution | default(value=false)) }}
+    {{ page_image::page_image(image = block.image, image_alt = block.image_alt, image_attribution = block.image_attribution | default(value=false), title = block.title | default(value=false), overlay_title = block.overlay_title | default(value=false), title_color = block.title_color | default(value='#17183b'), image_fade = block.image_fade | default(value=0)) }}
     {% elif block.block == "pagination" %}
     {{ pagination::pagination(data = block) }}
+    {% elif block.block == "pricing-hero" %}
+    {{ pricing_hero::pricing_hero(data = block) }}
     {% elif block.block == "posts-list" %}
     {{ posts_list::posts_list(data = block) }}
     {% elif block.block == "project-card" %}
@@ -44,6 +55,10 @@
     {{ projects_list::projects_list(data = block) }}
     {% elif block.block == "projects-section" %}
     {{ projects_section::projects_section(data = block) }}
+    {% elif block.block == "services-overview" %}
+    {{ services_overview::services_overview(data = block) }}
+    {% elif block.block == "services-section" %}
+    {{ services_section::services_section(data = block) }}
     {% elif block.block == "tags-list" %}
     {{ tags_list::tags_list(data = block) }}
     {% elif block.block == "testimonial-card" %}
@@ -56,5 +71,4 @@
     {{ team_grid::team_grid(data = block) }}
     {% endif %}
 {% endfor %}
-{% endmacro hero %}
-
+{% endmacro content_blocks %}
