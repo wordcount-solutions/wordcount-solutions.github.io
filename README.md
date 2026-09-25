@@ -234,6 +234,7 @@ The main site configuration is in `config.toml` at the root. Key sections:
 - `[extra.content_blocks]`: Defines homepage sections (hero, team-section, etc.)
 - `[extra.navigation]`: Site navigation menu configuration
 - `[extra.newsletter]`: Newsletter subscription configuration
+- `social_media_share_image`: Default image used in Open Graph and Twitter link previews; page-specific SEO or image metadata can override it
 - `show_projects`, `show_blog`, `show_tags`: Boolean flags to control section visibility (currently all set to `false`)
 - `title`, `description`, `base_url`: Site metadata
 
